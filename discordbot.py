@@ -31,7 +31,7 @@ async def on_guild_remove(guild):
     await client.change_presence(activity=discord.Game(name=presence))
 
 @client.command()
-async def 接続(ctx):
+async def ys(ctx):
     if ctx.message.guild:
         if ctx.author.voice is None:
             await ctx.send('ボイスチャンネルに接続してから呼び出してください。')
@@ -47,7 +47,7 @@ async def 接続(ctx):
                 await ctx.author.voice.channel.connect()
 
 @client.command()
-async def 切断(ctx):
+async def ye(ctx):
     if ctx.message.guild:
         if ctx.voice_client is None:
             await ctx.send('ボイスチャンネルに接続していません。')
@@ -186,8 +186,8 @@ async def on_command_error(ctx, error):
 async def ヘルプ(ctx):
     message = f'''◆◇◆{client.user.name}の使い方◆◇◆
 {prefix}＋コマンドで命令できます。
-{prefix}接続：ボイスチャンネルに接続します。
-{prefix}切断：ボイスチャンネルから切断します。'''
+{prefix}ys：ボイスチャンネルに接続します。
+{prefix}ye：ボイスチャンネルから切断します。'''
     await ctx.send(message)
 
 client.run(token)
